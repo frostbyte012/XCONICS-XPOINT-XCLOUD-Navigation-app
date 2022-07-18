@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:slidable_bar/slidable_bar.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -44,17 +45,63 @@ class _HomePageState extends State<HomePage> {
           clicker: Container(
             decoration: BoxDecoration(
               color: Color(0xFF0f0f3b),
-              borderRadius:BorderRadius.circular(60),
+              borderRadius:BorderRadius.only(bottomRight: Radius.circular(60),topRight:Radius.circular(60)),
             ),
             height: 40,
             width: 40,
             child: Icon(Icons.play_arrow,color: Colors.white,),
           ),
           barChildren: [
-            FlutterLogo(size: 50,),
-            FlutterLogo(size: 50,),
-            FlutterLogo(size: 50,),
-            FlutterLogo(size: 50,),
+            SizedBox(height: 10,),
+            Center(child: Text("Flags")),
+            SizedBox(height: 10,),
+            InkWell(
+              child:Center(child:Container(
+                child: Center(child: Text("Halt",style: TextStyle(color: Colors.white),)),
+                color:Colors.orange,
+                height: 70,
+                width: 140,
+              ),) ,
+              onTap: (){
+
+              },
+            ),
+            SizedBox(height: 10,),
+            InkWell(
+              child:Center(child:Container(
+                child: Center(child: Text("Idle",style: TextStyle(color: Colors.black),)),
+                color:Colors.yellow,
+                height: 70,
+                width: 140,
+              ),) ,
+              onTap: (){
+
+              },
+            ),
+            SizedBox(height: 10,),
+            InkWell(
+              child:Center(child:Container(
+                child: Center(child: Text("Theft",style: TextStyle(color: Colors.white),)),
+                color:Colors.red,
+                height: 70,
+                width: 140,
+              ),) ,
+              onTap: (){
+
+              },
+            ),
+            SizedBox(height: 10,),
+            InkWell(
+              child:Center(child:Container(
+                child: Center(child: Text("   Route\nDeviation",style: TextStyle(color: Colors.white),)),
+                color:Colors.blue,
+                height: 70,
+                width: 140,
+              ),) ,
+              onTap: (){
+
+              },
+            ),
           ],
           child: Container(
             child: SlidableBar(
@@ -63,7 +110,7 @@ class _HomePageState extends State<HomePage> {
               side: Side.right,
               clicker: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(60),
+                  borderRadius:BorderRadius.only(bottomLeft: Radius.circular(60),topLeft:Radius.circular(60)),
                   color: Color(0xFF0f0f3b),
                 ),
                 child: Icon(Icons.play_arrow,color: Colors.white,),
@@ -71,24 +118,101 @@ class _HomePageState extends State<HomePage> {
                 width: 40,
               ),
               barChildren: [
-                FlutterLogo(size: 50,),
-                FlutterLogo(size: 50,),
-                FlutterLogo(size: 50,),
-                FlutterLogo(size: 50,),
+                SizedBox(height: 10,),
+                Center(child: Text("Status")),
+                SizedBox(height: 10,),
+                InkWell(
+                  child:Center(child:Container(
+                    child: Center(child: Text("Running",style: TextStyle(color: Colors.white),)),
+                    color:Colors.green,
+                    height: 70,
+                    width: 140,
+                  ),) ,
+                  onTap: (){
+
+                  },
+                ),
+                SizedBox(height: 10,),
+                InkWell(
+                  child:Center(child:Container(
+                    child: Center(child: Text("Idle",style: TextStyle(color: Colors.black),)),
+                    color:Colors.yellow,
+                    height: 70,
+                    width: 140,
+                  ),) ,
+                  onTap: (){
+
+                  },
+                ),
+                SizedBox(height: 10,),
+                InkWell(
+                  child:Center(child:Container(
+                    child: Center(child: Text("Halt",style: TextStyle(color: Colors.white),)),
+                    color:Colors.red,
+                    height: 70,
+                    width: 140,
+                  ),) ,
+                  onTap: (){
+
+                  },
+                ),
+                SizedBox(height: 10,),
+                InkWell(
+                  child:Center(child:Container(
+                    child: Center(child: Text("No GPS",style: TextStyle(color: Colors.white),)),
+                    color:Colors.blue,
+                    height: 70,
+                    width: 140,
+                  ),) ,
+                  onTap: (){
+
+                  },
+                ),
+                SizedBox(height: 10,),
+                InkWell(
+                  child:Center(child:Container(
+                    child: Center(child: Text("Offline",style: TextStyle(color: Colors.white),)),
+                    color:Colors.grey,
+                    height: 70,
+                    width: 140,
+                  ),) ,
+                  onTap: (){
+
+                  },
+                ),
               ],
-              child: ListView(
+              child: Stack(
                 children: [
+                  Container(height: 730,width: 500,
+                    child:GoogleMap(
+                      initialCameraPosition: // required parameter that sets the starting camera position. Camera position describes which part of the world you want the map to point at.
+                      CameraPosition(
+                          target: LatLng(22.5448131,88.3403691),
+                          zoom: 0.0,
+                          tilt: 0.0),
+                      scrollGesturesEnabled: true,
+                      tiltGesturesEnabled: true,
+                      trafficEnabled: false,
+                      indoorViewEnabled: true,
+                      compassEnabled: true,
+                      rotateGesturesEnabled: true,
+                      myLocationEnabled: true,
+                      zoomGesturesEnabled: true,
+                      minMaxZoomPreference:
+                      new MinMaxZoomPreference(15, 1500),
+                    ),
+                  ),
 
-                  SizedBox(height: 5,),
 
-                  Center(
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(45, 10, 20, 10),
                     child: SizedBox(
                       height: 45,
                       width: 320,
                       child: TextFormField(
                         style: TextStyle(color: Colors.grey),
                         decoration: InputDecoration(
-                            fillColor: Colors.black12,
+                            fillColor: Colors.white,
                             filled: true,
                             counterText: "",
                             floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -136,6 +260,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
+
                 ],
               ),
             ),
