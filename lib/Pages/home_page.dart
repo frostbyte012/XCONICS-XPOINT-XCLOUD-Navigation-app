@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
 
       body:Container(
         child: SlidableBar(
-          size: 60,
+          size: 155,
           slidableController: controller1,
           side: Side.left,
           clicker: Container(
@@ -47,56 +47,101 @@ class _HomePageState extends State<HomePage> {
               color: Color(0xFF0f0f3b),
               borderRadius:BorderRadius.only(bottomRight: Radius.circular(60),topRight:Radius.circular(60)),
             ),
-            height: 40,
+            height: 70,
             width: 40,
             child: Icon(Icons.play_arrow,color: Colors.white,),
           ),
           barChildren: [
             SizedBox(height: 10,),
-            Center(child: Text("Flags")),
-            SizedBox(height: 10,),
+            Center(child: Text("Flags",style:TextStyle(fontWeight: FontWeight.bold,fontSize:45),)),
+            SizedBox(height: 20,),
             InkWell(
-              child:Center(child:Container(
-                child: Center(child: Text("Halt",style: TextStyle(color: Colors.white),)),
-                color:Colors.orange,
+              child:Center(
+                child:Container(
+                  decoration: BoxDecoration(
+                    color:Colors.orange,
+                    borderRadius:BorderRadius.circular(15),
+                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Halt",style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize:25),),
+                    Text("50",style: TextStyle(color: Colors.white,fontSize:20),),
+                  ],
+                ),
+                
                 height: 70,
-                width: 140,
+                width: 130,
               ),) ,
               onTap: (){
 
               },
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 20,),
             InkWell(
+
               child:Center(child:Container(
-                child: Center(child: Text("Idle",style: TextStyle(color: Colors.black),)),
-                color:Colors.yellow,
+                decoration: BoxDecoration(
+                  color:Colors.yellow,
+                  borderRadius:BorderRadius.circular(15),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Idle",style: TextStyle(color: Colors.black,fontWeight:FontWeight.bold,fontSize:25),),
+                    Text("50",style: TextStyle(color: Colors.black,fontSize:20),),
+                  ],
+                ),
                 height: 70,
-                width: 140,
+                width: 130,
               ),) ,
               onTap: (){
 
               },
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 20,),
             InkWell(
               child:Center(child:Container(
-                child: Center(child: Text("Theft",style: TextStyle(color: Colors.white),)),
-                color:Colors.red,
+                decoration: BoxDecoration(
+                  color:Colors.red,
+                  borderRadius:BorderRadius.circular(15),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Theft",style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize:25),),
+                    Text("50",style: TextStyle(color: Colors.white,fontSize:20),),
+                  ],
+                ),
                 height: 70,
-                width: 140,
+                width: 130,
               ),) ,
               onTap: (){
 
               },
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 20,),
             InkWell(
               child:Center(child:Container(
-                child: Center(child: Text("   Route\nDeviation",style: TextStyle(color: Colors.white),)),
-                color:Colors.blue,
+                decoration: BoxDecoration(
+                  color:Colors.blue,
+                  borderRadius:BorderRadius.circular(15),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Route",style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize:17),),
+                    Text("Deviation",style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize:17),),
+                    Text("50",style: TextStyle(color: Colors.white,fontSize:15),),
+                  ],
+                ),
+
                 height: 70,
-                width: 140,
+                width: 130,
               ),) ,
               onTap: (){
 
@@ -105,7 +150,7 @@ class _HomePageState extends State<HomePage> {
           ],
           child: Container(
             child: SlidableBar(
-              size: 60,
+              size: 155,
               slidableController: controller2,
               side: Side.right,
               clicker: Container(
@@ -114,17 +159,27 @@ class _HomePageState extends State<HomePage> {
                   color: Color(0xFF0f0f3b),
                 ),
                 child: Icon(Icons.play_arrow,color: Colors.white,),
-                height: 40,
+                height: 70,
                 width: 40,
               ),
               barChildren: [
                 SizedBox(height: 10,),
-                Center(child: Text("Status")),
-                SizedBox(height: 10,),
+                Center(child: Text("Status",style:TextStyle(fontWeight: FontWeight.bold,fontSize:45),)),
+                SizedBox(height: 20,),
                 InkWell(
                   child:Center(child:Container(
-                    child: Center(child: Text("Running",style: TextStyle(color: Colors.white),)),
-                    color:Colors.green,
+                    decoration: BoxDecoration(
+                      color:Colors.green,
+                      borderRadius:BorderRadius.circular(15),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Runnnig",style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize:25),),
+                        Text("50",style: TextStyle(color: Colors.white,fontSize:20),),
+                      ],
+                    ),
                     height: 70,
                     width: 140,
                   ),) ,
@@ -132,11 +187,21 @@ class _HomePageState extends State<HomePage> {
 
                   },
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 20,),
                 InkWell(
                   child:Center(child:Container(
-                    child: Center(child: Text("Idle",style: TextStyle(color: Colors.black),)),
-                    color:Colors.yellow,
+                    decoration: BoxDecoration(
+                      color:Colors.yellow,
+                      borderRadius:BorderRadius.circular(15),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Idle",style: TextStyle(color: Colors.black,fontWeight:FontWeight.bold,fontSize:25),),
+                        Text("50",style: TextStyle(color: Colors.black,fontSize:20),),
+                      ],
+                    ),
                     height: 70,
                     width: 140,
                   ),) ,
@@ -144,11 +209,21 @@ class _HomePageState extends State<HomePage> {
 
                   },
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 20,),
                 InkWell(
                   child:Center(child:Container(
-                    child: Center(child: Text("Halt",style: TextStyle(color: Colors.white),)),
-                    color:Colors.red,
+                    decoration: BoxDecoration(
+                      color:Colors.red,
+                      borderRadius:BorderRadius.circular(15),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Halt",style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize:25),),
+                        Text("50",style: TextStyle(color: Colors.white,fontSize:20),),
+                      ],
+                    ),
                     height: 70,
                     width: 140,
                   ),) ,
@@ -156,11 +231,21 @@ class _HomePageState extends State<HomePage> {
 
                   },
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 20,),
                 InkWell(
                   child:Center(child:Container(
-                    child: Center(child: Text("No GPS",style: TextStyle(color: Colors.white),)),
-                    color:Colors.blue,
+                    decoration: BoxDecoration(
+                      color:Colors.blue,
+                      borderRadius:BorderRadius.circular(15),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("No GPS",style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize:25),),
+                        Text("50",style: TextStyle(color: Colors.white,fontSize:20),),
+                      ],
+                    ),
                     height: 70,
                     width: 140,
                   ),) ,
@@ -168,11 +253,21 @@ class _HomePageState extends State<HomePage> {
 
                   },
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 20,),
                 InkWell(
                   child:Center(child:Container(
-                    child: Center(child: Text("Offline",style: TextStyle(color: Colors.white),)),
-                    color:Colors.grey,
+                    decoration: BoxDecoration(
+                      color:Colors.grey,
+                      borderRadius:BorderRadius.circular(15),
+                    ),
+                    child:Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Offline",style: TextStyle(color: Colors.white,fontWeight:FontWeight.bold,fontSize:25),),
+                        Text("50",style: TextStyle(color: Colors.white,fontSize:20),),
+                      ],
+                    ),
                     height: 70,
                     width: 140,
                   ),) ,
@@ -267,6 +362,20 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(onPressed: (){}, icon: Icon(Icons.home)),
+            IconButton(onPressed: (){}, icon: Icon(Icons.home)),
+            IconButton(onPressed: (){}, icon: Icon(Icons.home)),
+            IconButton(onPressed: (){}, icon: Icon(Icons.home)),
+            IconButton(onPressed: (){}, icon: Icon(Icons.home)),
+          ],
+        ),
+      ),
+
     );
   }
 }
