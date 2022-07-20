@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:slidable_bar/slidable_bar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,6 +16,23 @@ class _HomePageState extends State<HomePage> {
 
   final SlidableBarController controller1 = SlidableBarController(initialStatus: true);
   final SlidableBarController controller2 = SlidableBarController(initialStatus: true);
+  // final autoSizeGroup = AutoSizeGroup();
+  var _bottomNavIndex = 0; //default index of a first screen
+
+  late AnimationController _fabAnimationController;
+  late AnimationController _borderRadiusAnimationController;
+  late Animation<double> fabAnimation;
+  late Animation<double> borderRadiusAnimation;
+  late CurvedAnimation fabCurve;
+  late CurvedAnimation borderRadiusCurve;
+  late AnimationController _hideBottomBarAnimationController;
+
+  final iconList = <IconData>[
+    Icons.brightness_5,
+    Icons.brightness_4,
+    Icons.brightness_6,
+    Icons.brightness_7,
+  ];
 
 
   bool handle_password=true;
@@ -363,18 +381,46 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
 
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(onPressed: (){}, icon: Icon(Icons.home)),
-            IconButton(onPressed: (){}, icon: Icon(Icons.home)),
-            IconButton(onPressed: (){}, icon: Icon(Icons.home)),
-            IconButton(onPressed: (){}, icon: Icon(Icons.home)),
-            IconButton(onPressed: (){}, icon: Icon(Icons.home)),
-          ],
+      // bottomNavigationBar: BottomAppBar(
+      //   child: Row(
+      //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //     children: [
+      //       IconButton(onPressed: (){}, icon: Icon(Icons.home)),
+      //       IconButton(onPressed: (){}, icon: Icon(Icons.home)),
+      //       IconButton(onPressed: (){}, icon: Icon(Icons.home)),
+      //       IconButton(onPressed: (){}, icon: Icon(Icons.home)),
+      //       IconButton(onPressed: (){}, icon: Icon(Icons.home)),
+      //     ],
+      //   ),
+      // ),
+
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.yellow,
+        child: Icon(
+          Icons.home,
+          color: Colors.white,
         ),
+        onPressed: () {
+          _fabAnimationController.reset();
+          _borderRadiusAnimationController.reset();
+          _borderRadiusAnimationController.forward();
+          _fabAnimationController.forward();
+        },
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: AnimatedBottomNavigationBar(
+          backgroundColor: Colors.green,
+          icons: iconList,
+          activeIndex: _bottomNavIndex,
+          gapLocation: GapLocation.center,
+          notchSmoothness: NotchSmoothness.verySmoothEdge,
+          leftCornerRadius: 32,
+          rightCornerRadius: 32,
+          onTap: (index) => setState(() => _bottomNavIndex = index),
+          //other params
+        ),
+
+
 
     );
   }
