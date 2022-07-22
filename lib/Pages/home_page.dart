@@ -57,6 +57,7 @@ class _HomePageState extends State<HomePage> {
 
       body:Container(
         child: SlidableBar(
+          backgroundColor: Colors.transparent,
           size: 155,
           slidableController: controller1,
           side: Side.left,
@@ -71,7 +72,7 @@ class _HomePageState extends State<HomePage> {
           ),
           barChildren: [
             SizedBox(height: 10,),
-            Center(child: Text("Flags",style:TextStyle(fontWeight: FontWeight.bold,fontSize:45),)),
+            Center(child: Text("Flags",style:TextStyle(fontWeight: FontWeight.bold,fontSize:45,color: Colors.black),)),
             SizedBox(height: 20,),
             InkWell(
               child:Center(
@@ -168,6 +169,7 @@ class _HomePageState extends State<HomePage> {
           ],
           child: Container(
             child: SlidableBar(
+              backgroundColor: Colors.transparent,
               size: 155,
               slidableController: controller2,
               side: Side.right,
@@ -182,7 +184,7 @@ class _HomePageState extends State<HomePage> {
               ),
               barChildren: [
                 SizedBox(height: 10,),
-                Center(child: Text("Status",style:TextStyle(fontWeight: FontWeight.bold,fontSize:45),)),
+                Center(child: Text("Status",style:TextStyle(fontWeight: FontWeight.bold,fontSize:45,color:Colors.black,),),),
                 SizedBox(height: 20,),
                 InkWell(
                   child:Center(child:Container(
